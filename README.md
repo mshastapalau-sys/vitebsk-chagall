@@ -40,4 +40,6 @@ vitebsk-chagall/
 
 ## Источники материалов
 
+- Шрифты [Lora](https://fonts.google.com/specimen/Lora) и [Inter](https://fonts.google.com/specimen/Inter) — лицензия SIL Open Font License 1.1.
+
 <!-- Изображения, аудио, видео и тексты: автор, лицензия, ссылка. -->

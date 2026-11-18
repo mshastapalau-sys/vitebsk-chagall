@@ -3,18 +3,439 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Витебск глазами Марка Шагала: город, который художник пронёс через всю жизнь.">
+  <meta name="description" content="Онлайн-путеводитель по Витебску Марка Шагала: детство художника, школа Пэна, Народное художественное училище и места, которые можно увидеть сегодня.">
   <title>Витебск глазами Марка Шагала</title>
 
-  <!-- Предзагрузка основных шрифтов -->
+  <!-- Предзагрузка основных шрифтов и фото первого экрана -->
   <link rel="preload" href="fonts/lora-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="img/hero-vitebsk-1912.webp" as="image">
 
   <link rel="stylesheet" href="styles.css">
   <!-- Модуль выполняется после загрузки HTML -->
   <script src="script.js" type="module"></script>
 </head>
 <body>
-  <!-- Разметка страницы: header, main с секциями, footer -->
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="header__logo" href="#hero">Витебск Шагала</a>
+
+      <button class="header__burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#life">Жизнь</a></li>
+          <li><a class="nav__link" href="#timeline">Хронология</a></li>
+          <li><a class="nav__link" href="#places">Места</a></li>
+          <li><a class="nav__link" href="#excursion">Экскурсия</a></li>
+        </ul>
+      </nav>
+
+      <p class="header__slogan">Город, который летал</p>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">Онлайн-путеводитель</p>
+          <h1 class="hero__title" id="hero-title">Город, который научил Шагала летать.</h1>
+          <p class="hero__text">Витебск — главный город на картинах Марка Шагала. Его улицы, дома и церкви художник пронёс через всю жизнь, а над ними отправил летать влюблённых, скрипачей и коз.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#life">Начать путешествие <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="link-arrow" href="#audioguide">Слушать аудиогид <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+          <p class="hero__note"><span class="hero__note-line" aria-hidden="true"></span>Увидеть Витебск глазами художника</p>
+        </div>
+
+        <figure class="hero__media">
+          <div class="hero__sky" aria-hidden="true">
+            <svg class="hero__figure hero__figure--lovers" data-float viewBox="0 0 120 80" width="120" height="80">
+              <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="38" cy="18" r="7"></circle>
+                <circle cx="78" cy="16" r="7"></circle>
+                <path d="M38 25c-8 10-10 22-6 36M78 23c8 10 8 22 4 38M44 40c8-6 16-6 26 0"></path>
+                <path d="M58 28c2 4 6 4 8 0"></path>
+              </g>
+            </svg>
+            <svg class="hero__figure hero__figure--goat" data-float viewBox="0 0 100 70" width="100" height="70">
+              <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M28 28c8-14 22-16 30-6"></path>
+                <path d="M22 24c2-8 8-10 12-6M40 20c2-8 8-8 10-2"></path>
+                <ellipse cx="48" cy="40" rx="22" ry="12"></ellipse>
+                <path d="M30 48l-4 14M40 50l-2 14M58 50l2 14M68 46l6 14M70 36c8 2 12 6 14 12"></path>
+              </g>
+            </svg>
+            <svg class="hero__figure hero__figure--violin" data-float viewBox="0 0 80 100" width="72" height="90">
+              <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="28" cy="16" r="7"></circle>
+                <path d="M28 23v22M18 32h16M24 45l-8 28M32 45l6 28"></path>
+                <path d="M46 28c10 2 16 10 16 18 0 10-8 16-16 14-6-2-8-8-6-14 2-8 8-16 6-18z"></path>
+                <path d="M52 24v-10M48 18h8"></path>
+              </g>
+            </svg>
+          </div>
+          <img src="img/hero-vitebsk-1912.webp" width="1397" height="924" alt="Дома и улицы Витебска у Замковой горы в 1912 году">
+          <figcaption class="hero__caption">
+            <span class="hero__caption-index">01 / Витебск</span>
+            <span class="hero__caption-title">Город, каким его видел Шагал</span>
+            <small class="credit">Фото: Сергей Прокудин-Горский, 1912. Общественное достояние, <a href="https://commons.wikimedia.org/wiki/File:Viciebski_zamak._%D0%92%D1%96%D1%86%D0%B5%D0%B1%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%BC%D0%B0%D0%BA_(S._Prokudin-Gorsky,_1912)_(cropped).jpg">Wikimedia Commons</a>. Изменено.</small>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="ornament" aria-hidden="true"></div>
+
+    <!-- Жизнь -->
+    <section class="periods" id="life" aria-labelledby="life-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="life-title">Витебск в судьбе Шагала</h2>
+          <a class="link-arrow" href="#timeline">Вся хронология <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+
+        <ul class="periods__list">
+          <li class="period-card" data-flip data-reveal>
+            <div class="period-card__inner">
+              <div class="period-card__face period-card__front">
+                <p class="period-card__meta"><span class="period-card__index">01</span><span class="period-card__years">1887–1906</span></p>
+                <h3>Детство</h3>
+                <p>Мальчик из большой семьи, который рисовал всё, что видел вокруг.</p>
+                <button class="link-arrow period-card__toggle" type="button" aria-expanded="false">Подробнее <span class="arrow" aria-hidden="true">↗</span></button>
+              </div>
+              <div class="period-card__face period-card__back">
+                <p>Мовша (будущий Марк) Шагал родился 6 июля 1887 года в местечке Лиозно недалеко от Витебска. Он был старшим ребёнком в семье приказчика. Детство прошло в Витебске. С 1898 по 1905 год он учился в 1-м Витебском четырёхклассном училище. Улицы, дворы и заборы родного города позже появятся на сотнях его картин.</p>
+                <button class="link-arrow period-card__toggle" type="button">Назад</button>
+              </div>
+            </div>
+          </li>
+
+          <li class="period-card" data-flip data-reveal>
+            <div class="period-card__inner">
+              <div class="period-card__face period-card__front">
+                <p class="period-card__meta"><span class="period-card__index">02</span><span class="period-card__years">1906–1911</span></p>
+                <h3>Школа Пэна</h3>
+                <p>Первый учитель и первые уроки настоящей живописи.</p>
+                <button class="link-arrow period-card__toggle" type="button" aria-expanded="false">Подробнее <span class="arrow" aria-hidden="true">↗</span></button>
+              </div>
+              <div class="period-card__face period-card__back">
+                <p>В 1906 году Шагал пришёл в Школу рисования и живописи Юделя (Юрия) Пэна. Пэн открыл её в Витебске в 1898 году, это было первое в России еврейское художественное училище. От учителя Шагал перенял мысль, что художник рассказывает о своём народе. Потом была учёба в Петербурге, а в 1911 году — Париж.</p>
+                <figure class="period-card__photo">
+                  <img src="img/pen-portrait-chagall.webp" width="900" height="1269" alt="Портрет молодого Марка Шагала кисти Юделя Пэна" loading="lazy">
+                  <figcaption class="credit">Фото: Юдель (Юрий) Пэн. Общественное достояние, <a href="https://commons.wikimedia.org/wiki/File:Yury_Pen_-_Portrait_of_Marc_Chagall.jpg">Wikimedia Commons</a>. Изменено.</figcaption>
+                </figure>
+                <button class="link-arrow period-card__toggle" type="button">Назад</button>
+              </div>
+            </div>
+          </li>
+
+          <li class="period-card" data-flip data-reveal>
+            <div class="period-card__inner">
+              <div class="period-card__face period-card__front">
+                <p class="period-card__meta"><span class="period-card__index">03</span><span class="period-card__years">1914–1918</span></p>
+                <h3>Возвращение и Белла</h3>
+                <p>Короткий приезд домой, который растянулся на годы.</p>
+                <button class="link-arrow period-card__toggle" type="button" aria-expanded="false">Подробнее <span class="arrow" aria-hidden="true">↗</span></button>
+              </div>
+              <div class="period-card__face period-card__back">
+                <p>Летом 1914 года Шагал приехал в Витебск повидать родных и невесту Беллу Розенфельд. Вернуться в Париж помешала Первая мировая война. 25 июля 1915 года Марк и Белла поженились, а 18 мая 1916 года в Витебске родилась их дочь Ида. Белла осталась музой художника на всю жизнь, а влюблённые, парящие над городом, стали его самым известным сюжетом.</p>
+                <button class="link-arrow period-card__toggle" type="button">Назад</button>
+              </div>
+            </div>
+          </li>
+
+          <li class="period-card" data-flip data-reveal>
+            <div class="period-card__inner">
+              <div class="period-card__face period-card__front">
+                <p class="period-card__meta"><span class="period-card__index">04</span><span class="period-card__years">1918–1920</span></p>
+                <h3>Народное художественное училище</h3>
+                <p>Школа, где учиться искусству мог каждый.</p>
+                <button class="link-arrow period-card__toggle" type="button" aria-expanded="false">Подробнее <span class="arrow" aria-hidden="true">↗</span></button>
+              </div>
+              <div class="period-card__face period-card__back">
+                <p>После революции Шагал добился открытия в Витебске Народного художественного училища. Первый набор начался 11 ноября 1918 года, торжественное открытие прошло 28 января 1919 года. Преподавать приехали Мстислав Добужинский, Эль Лисицкий, Казимир Малевич, Вера Ермолаева, Юдель Пэн. В 1920 году Шагал уехал из Витебска в Москву.</p>
+                <button class="link-arrow period-card__toggle" type="button">Назад</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Хронология -->
+    <section class="timeline" id="timeline" aria-labelledby="timeline-title">
+      <div class="container">
+        <p class="eyebrow">Жизнь художника</p>
+        <div class="section-head">
+          <h2 id="timeline-title">Из Витебска — в мир. Шаг за шагом.</h2>
+          <a class="link-arrow" href="#life">Подробнее о жизни <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="timeline__track">
+          <span class="timeline__line" aria-hidden="true"></span>
+          <ol class="timeline__list">
+            <li class="timeline__item">
+              <button class="timeline__point" type="button" aria-expanded="false" aria-controls="event-1887">
+                <time class="timeline__year" datetime="1887">1887</time>
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <span class="timeline__event">Рождение Марка Шагала</span>
+                <span class="timeline__place">Лиозно, под Витебском</span>
+              </button>
+              <p class="timeline__details" id="event-1887" hidden>6 июля в семье приказчика Хацкеля Шагала родился первенец Мовша — будущий Марк Шагал.</p>
+            </li>
+            <li class="timeline__item">
+              <button class="timeline__point" type="button" aria-expanded="false" aria-controls="event-1911">
+                <time class="timeline__year" datetime="1911">1911</time>
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <span class="timeline__event">Отъезд в Париж</span>
+                <span class="timeline__place">Париж</span>
+              </button>
+              <p class="timeline__details" id="event-1911" hidden>В мае 1911 года Шагал уехал учиться в Париж, где познакомился с художниками-авангардистами.</p>
+            </li>
+            <li class="timeline__item">
+              <button class="timeline__point" type="button" aria-expanded="false" aria-controls="event-1919">
+                <time class="timeline__year" datetime="1919">1919</time>
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <span class="timeline__event">Открытие Народного художественного училища</span>
+                <span class="timeline__place">Витебск</span>
+              </button>
+              <p class="timeline__details" id="event-1919" hidden>28 января 1919 года состоялось торжественное открытие училища. Вскоре его возглавил Шагал.</p>
+            </li>
+            <li class="timeline__item">
+              <button class="timeline__point" type="button" aria-expanded="false" aria-controls="event-1922">
+                <time class="timeline__year" datetime="1922">1922</time>
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <span class="timeline__event">Эмиграция</span>
+                <span class="timeline__place">Каунас — Берлин — Париж</span>
+              </button>
+              <p class="timeline__details" id="event-1922" hidden>Шагал с семьёй уехал из страны. С 1937 года он гражданин Франции, но витебские мотивы остались в его картинах до конца жизни.</p>
+            </li>
+            <li class="timeline__item">
+              <button class="timeline__point" type="button" aria-expanded="false" aria-controls="event-1997">
+                <time class="timeline__year" datetime="1997">1997</time>
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <span class="timeline__event">Открытие Дома-музея</span>
+                <span class="timeline__place">Витебск</span>
+              </button>
+              <p class="timeline__details" id="event-1997" hidden>В доме на Покровской улице, где прошла юность художника, открылся Мемориальный дом-музей Марка Шагала.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament" aria-hidden="true"></div>
+
+    <!-- Места -->
+    <section class="places" id="places" aria-labelledby="places-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 id="places-title">Шагаловский Витебск</h2>
+            <p class="places__lead">Места, которые можно увидеть сегодня</p>
+          </div>
+          <a class="link-arrow" href="#excursion">Записаться на экскурсию <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="slider" data-slider>
+          <div class="slider__viewport">
+            <ul class="slider__track">
+              <li class="place-card" data-reveal>
+                <article>
+                  <figure class="place-card__image">
+                    <button class="place-card__zoom" type="button" data-slide data-lightbox-index="0" data-caption="Фото: Adam Jones, CC BY-SA 2.0, Wikimedia Commons. Изменено.">
+                      <img src="img/place-house-museum.webp" width="1200" height="900" alt="Мемориальный дом-музей Марка Шагала на Покровской улице в Витебске" loading="lazy">
+                    </button>
+                    <figcaption class="credit">Фото: Adam Jones, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Marc_Chagall_House_-_Vitebsk_-_Belarus_(27430073700).jpg">Wikimedia Commons</a>. Изменено.</figcaption>
+                  </figure>
+                  <p class="place-card__tag">Музей / 3 мин</p>
+                  <h3>Дом, где прошла юность художника</h3>
+                  <p>Дом на Покровской, 11 построил отец Шагала в начале 1900-х. Художник описал его в книге «Моя жизнь». Музей открыт с 1997 года.</p>
+                </article>
+              </li>
+              <li class="place-card" data-reveal>
+                <article>
+                  <figure class="place-card__image">
+                    <button class="place-card__zoom" type="button" data-slide data-lightbox-index="1" data-caption="Фото: Lumaca, CC BY-SA 4.0, Wikimedia Commons. Изменено.">
+                      <img src="img/place-art-center.webp" width="1200" height="900" alt="Здание Арт-центра Марка Шагала в Витебске" loading="lazy">
+                    </button>
+                    <figcaption class="credit">Фото: Lumaca, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Marc_Chagall_Art_Center.jpg">Wikimedia Commons</a>. Изменено.</figcaption>
+                  </figure>
+                  <p class="place-card__tag">Выставки / 2 мин</p>
+                  <h3>Графика Шагала в его родном городе</h3>
+                  <p>Арт-центр на улице Путна, 2 создан в 1992 году. Здесь показывают литографии, офорты и гравюры художника.</p>
+                </article>
+              </li>
+              <li class="place-card" data-reveal>
+                <article>
+                  <figure class="place-card__image">
+                    <button class="place-card__zoom" type="button" data-slide data-lightbox-index="2" data-caption="Фото: В. А. Шишанов, CC BY-SA 3.0, Wikimedia Commons. Изменено.">
+                      <img src="img/place-art-school.webp" width="512" height="385" alt="Здание Витебского народного художественного училища" loading="lazy">
+                    </button>
+                    <figcaption class="credit">Фото: В. А. Шишанов, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:VitebskVKhU.jpg">Wikimedia Commons</a>. Изменено.</figcaption>
+                  </figure>
+                  <p class="place-card__tag">История / 4 мин</p>
+                  <h3>Школа, где встретились Шагал и Малевич</h3>
+                  <p>Особняк на улице Марка Шагала, 5а (бывшая Бухаринская, 10), где в 1918 году открылось училище. С 2018 года в здании работает музей.</p>
+                </article>
+              </li>
+            </ul>
+          </div>
+          <div class="slider__controls">
+            <button class="slider__btn slider__btn--prev" type="button" aria-label="Предыдущий слайд">
+              <span aria-hidden="true">←</span>
+            </button>
+            <div class="slider__dots"></div>
+            <button class="slider__btn slider__btn--next" type="button" aria-label="Следующий слайд">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Дополнительные фото тура -->
+        <div class="places__extra" hidden>
+          <img data-slide data-lightbox-index="3" src="img/chagall-sculpture.webp" width="1200" height="900" alt="Памятник Марку Шагалу у Дома-музея в Витебске" data-caption="Фото: Adam Jones, CC BY-SA 2.0, Wikimedia Commons. Изменено.">
+          <img data-slide data-lightbox-index="4" src="img/vitebsk-assumption-1911.webp" width="1400" height="1226" alt="Интерьер Успенского собора в Витебске, 1911 год" data-caption="Фото: Сергей Прокудин-Горский, 1911. Общественное достояние, Wikimedia Commons. Изменено.">
+        </div>
+      </div>
+    </section>
+
+    <!-- Аудиогид -->
+    <section class="feature" id="audioguide" aria-labelledby="audioguide-title">
+      <div class="container feature__grid">
+        <figure class="feature__media">
+          <img src="img/place-house-museum.webp" width="1200" height="900" alt="Мемориальный дом-музей Марка Шагала, вид с улицы" loading="lazy">
+          <figcaption class="credit">Фото: Adam Jones, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Marc_Chagall_House_-_Vitebsk_-_Belarus_(27430073700).jpg">Wikimedia Commons</a>. Изменено.</figcaption>
+        </figure>
+
+        <div class="feature__copy">
+          <p class="eyebrow">Аудиогид</p>
+          <h2 id="audioguide-title">Одна улица. Целый мир.</h2>
+          <p>Покровская улица — маленький кусочек Витебска, из которого вырос огромный мир Шагала. Послушайте, как выглядела она сто с лишним лет назад.</p>
+
+          <div class="audio-player" data-audio>
+            <audio class="audio-player__native" src="audio/audioguide-pokrovskaya.wav" preload="metadata"></audio>
+            <button class="btn btn--primary audio-player__play" type="button">Слушать</button>
+            <label class="visually-hidden" for="audio-progress">Прогресс воспроизведения</label>
+            <input class="audio-player__progress" id="audio-progress" type="range" min="0" max="100" value="0" step="0.1">
+            <p class="audio-player__time">0:00 / 0:00</p>
+          </div>
+
+          <button class="link-arrow" type="button" data-lightbox-index="0">Рассмотреть поближе <span class="arrow" aria-hidden="true">↗</span></button>
+          <p class="feature__artifact">Экспонат № 001</p>
+
+          <details class="feature__transcript">
+            <summary>Текст аудиогида</summary>
+            <p>Здравствуйте! Мы на Покровской улице Витебска. В начале прошлого века здесь стоял обычный кирпичный дом, который построил отец Марка Шагала. Здесь будущий художник провёл юность: смотрел из окна на деревянные заборы, купола церквей и соседей, спешащих по делам. Позже, уже живя в Париже, он писал этот город по памяти снова и снова. На его картинах над витебскими крышами летают влюблённые, на крыше играет скрипач, а по небу шагает корова. Шагал говорил, что носит Витебск с собой, куда бы ни поехал. Сегодня в этом доме работает музей, и каждый может увидеть, где начинался путь художника.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament" aria-hidden="true"></div>
+
+    <!-- Экскурсия -->
+    <section class="excursion" id="excursion" aria-labelledby="excursion-title">
+      <div class="container excursion__grid">
+        <div class="excursion__copy">
+          <h2 id="excursion-title">Записаться на экскурсию</h2>
+          <p>Пройдите по местам Шагала вместе с экскурсоводом. Оставьте заявку, и мы подберём время.</p>
+        </div>
+
+        <form class="form" novalidate data-form>
+          <div class="form__field">
+            <label class="form__label" for="visitor-name">Ваше имя</label>
+            <input class="form__input" id="visitor-name" name="name" type="text" autocomplete="name" placeholder="Например, Анна" required aria-describedby="name-error">
+            <p class="form__error" id="name-error" aria-live="polite"></p>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="visitor-email">Электронная почта</label>
+            <input class="form__input" id="visitor-email" name="email" type="email" autocomplete="email" placeholder="name@mail.by" required aria-describedby="email-error">
+            <p class="form__error" id="email-error" aria-live="polite"></p>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label class="form__label" for="visitor-date">Желаемая дата</label>
+              <input class="form__input" id="visitor-date" name="date" type="date" required aria-describedby="date-error">
+              <p class="form__error" id="date-error" aria-live="polite"></p>
+            </div>
+
+            <div class="form__field">
+              <label class="form__label" for="visitor-tour">Экскурсия</label>
+              <select class="form__input" id="visitor-tour" name="tour" required aria-describedby="tour-error">
+                <option value="">Выберите экскурсию…</option>
+                <option>Дом-музей Марка Шагала</option>
+                <option>Арт-центр Марка Шагала</option>
+                <option>Пешая прогулка по шагаловскому Витебску</option>
+              </select>
+              <p class="form__error" id="tour-error" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="form__field form__field--check">
+            <input class="form__checkbox" id="visitor-consent" name="consent" type="checkbox" aria-describedby="consent-error">
+            <label class="form__label" for="visitor-consent">Я согласен на обработку персональных данных</label>
+            <p class="form__error" id="consent-error" aria-live="polite"></p>
+          </div>
+
+          <button class="btn btn--primary form__submit" type="submit">Записаться <span class="arrow" aria-hidden="true">→</span></button>
+          <p class="form__note">Нажимая «Записаться», вы соглашаетесь с политикой конфиденциальности.</p>
+          <p class="form__message" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <p class="footer__logo">Витебск Шагала</p>
+          <p class="footer__tagline">Город, который летал.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Навигация в подвале">
+          <ul class="footer__list">
+            <li><a href="#life">Жизнь</a></li>
+            <li><a href="#timeline">Хронология</a></li>
+            <li><a href="#places">Места</a></li>
+            <li><a href="#excursion">Экскурсия</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p><small>© 2026 Витебск Шагала. Учебный проект.</small></p>
+        <p><small>Фото: Wikimedia Commons, авторы указаны в подписях.</small></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" data-to-top hidden>Наверх</button>
+
+  <!-- Лайтбокс -->
+  <dialog class="lightbox" id="lightbox" aria-label="Просмотр фотографий">
+    <div class="lightbox__frame">
+      <button class="lightbox__close" type="button" aria-label="Закрыть">×</button>
+      <button class="lightbox__prev" type="button" aria-label="Предыдущее фото">←</button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__image" alt="" width="1200" height="900">
+        <figcaption class="lightbox__caption"></figcaption>
+      </figure>
+      <button class="lightbox__next" type="button" aria-label="Следующее фото">→</button>
+      <p class="lightbox__counter"></p>
+    </div>
+  </dialog>
 </body>
 </html>

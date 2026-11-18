@@ -476,44 +476,10 @@ button.link-arrow {
   background: var(--color-line);
 }
 
-.hero__media {
-  position: relative;
-  overflow: hidden;
-}
-
 .hero__media img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-}
-
-/* Силуэты летят над фото, JS двигает их через transform */
-.hero__sky {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  color: #f7f4ee;
-  pointer-events: none;
-  filter: drop-shadow(0 1px 2px rgb(20 16 12 / 0.45));
-}
-
-.hero__figure {
-  position: absolute;
-}
-
-.hero__figure--lovers {
-  top: 8%;
-  left: 6%;
-}
-
-.hero__figure--goat {
-  top: 14%;
-  right: 4%;
-}
-
-.hero__figure--violin {
-  bottom: 10%;
-  left: 42%;
 }
 
 .hero__caption {
@@ -1135,7 +1101,7 @@ button.link-arrow {
 /* ---------- Лайтбокс ---------- */
 
 .lightbox {
-  display: grid;
+  display: none;
   place-items: center;
   width: 100%;
   max-width: none;
@@ -1146,6 +1112,10 @@ button.link-arrow {
   border: 0;
   background: transparent;
   color: var(--color-text-on-dark);
+}
+
+.lightbox[open] {
+  display: grid;
 }
 
 .lightbox::backdrop {

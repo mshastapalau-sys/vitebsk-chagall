@@ -152,7 +152,12 @@ const initFlipCards = () => {
       front.inert = flipped;
       back.inert = !flipped;
       moreButton.setAttribute("aria-expanded", String(flipped));
-      if (moveFocus) window.setTimeout(() => (flipped ? backButton : moreButton).focus(), 0);
+      window.setTimeout(() => {
+        // фокус на «Назад» иначе прокручивает карточку к концу текста
+        if (flipped) back.scrollTop = 0;
+        if (moveFocus) (flipped ? backButton : moreButton).focus({ preventScroll: true });
+        if (flipped) back.scrollTop = 0;
+      }, 0);
     };
 
     moreButton.addEventListener("click", () => setFlipped(true, true));

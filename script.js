@@ -85,8 +85,12 @@ const initActiveLink = () => {
   const links = qsa(".nav__link");
   if (!links.length) return;
 
-  const byId = new Map(links.map((link) => [link.getAttribute("href")?.slice(1), link]));
-  const sections = qsa("main section").filter((section) => byId.has(section.id));
+  const sections = [];
+  links.forEach((link) => {
+    const id = link.getAttribute("href").slice(1);
+    const section = document.getElementById(id);
+    if (section) sections.push(section);
+  });
   if (!sections.length) return;
 
   const setCurrent = (id) => {
@@ -173,10 +177,11 @@ const initTimeline = () => {
       return;
     }
 
+    // 0 — секция ещё внизу, 1 — уже проскроллена
     const rect = section.getBoundingClientRect();
-    const start = window.innerHeight * 0.9;
-    const distance = rect.height + window.innerHeight * 0.35;
-    const progress = Math.min(1, Math.max(0, (start - rect.top) / distance));
+    const passed = window.innerHeight * 0.9 - rect.top;
+    const total = rect.height + window.innerHeight * 0.35;
+    const progress = Math.min(1, Math.max(0, passed / total));
     section.style.setProperty("--progress", progress.toFixed(3));
 
     items.forEach((item, index) => {
@@ -423,59 +428,23 @@ const initAudioGuide = () => {
   });
 };
 
-// Летящие силуэты: волна, параллакс мыши и прокрутки
-const initFloatingFigures = () => {
-  const figures = qsa("[data-float]");
-  if (!figures.length || prefersReducedMotion()) return;
-
-  let mouseX = 0;
-  let mouseY = 0;
-  let scrollY = 0;
-
-  window.addEventListener("pointermove", (event) => {
-    mouseX = event.clientX / window.innerWidth - 0.5;
-    mouseY = event.clientY / window.innerHeight - 0.5;
-  });
-
-  window.addEventListener("scroll", () => {
-    scrollY = window.scrollY;
-  }, { passive: true });
-
-  const started = performance.now();
-
-  const tick = (now) => {
-    const time = (now - started) / 1000;
-    figures.forEach((figure, index) => {
-      const speed = 0.45 + index * 0.12;
-      const amplitude = 12 + index * 6;
-      const x = Math.cos(time * speed + index) * amplitude + mouseX * (16 + index * 8);
-      const y = Math.sin(time * speed * 1.3 + index) * amplitude + mouseY * 10 - scrollY * 0.04 * (index + 1);
-      figure.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    });
-    requestAnimationFrame(tick);
-  };
-
-  requestAnimationFrame(tick);
-};
-
 // Правила формы: одна проверка на все поля
 const formRules = {
   name: {
     check: (value) => {
       const text = value.trim();
-      const letters = text.match(/\p{L}/gu) || [];
-      if (letters.length < 2 || !/^[\p{L}\s-]+$/u.test(text)) {
-        return "Введите имя (минимум 2 буквы)";
-      }
+      // первая буква, дальше буквы, пробел или дефис, минимум 2 символа
+      const ok = /^[A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё\s-]{1,}$/.test(text);
+      if (!ok) return "Введите имя (минимум 2 буквы)";
       return "";
     }
   },
   email: {
-    check: (value) => (
-      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim())
-        ? ""
-        : "Введите e-mail в формате name@mail.by"
-    )
+    check: (value) => {
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+      if (!ok) return "Введите e-mail в формате name@mail.by";
+      return "";
+    }
   },
   date: {
     check: (value) => {
@@ -583,7 +552,6 @@ const init = () => {
   initSlider();
   initLightbox();
   initAudioGuide();
-  initFloatingFigures();
   initForm();
 };
 

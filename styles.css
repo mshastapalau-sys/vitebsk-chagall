@@ -604,6 +604,10 @@ button.link-arrow {
   margin-top: auto;
 }
 
+.period-card__back .period-card__toggle {
+  margin-top: 0.25rem;
+}
+
 .period-card__photo img {
   width: 100%;
   max-height: 11rem;

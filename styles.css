@@ -1,15 +1,3 @@
-/* ==========================================================================
-   Витебск глазами Марка Шагала — стили
-   Подход mobile-first: базовые стили для телефона,
-   медиазапросы в конце файла — для планшета и ПК.
-   Брейкпоинты (в media нельзя использовать переменные):
-     768px  — планшет
-     1280px — ПК (макет 1440px)
-   ========================================================================== */
-
-
-/* ---------- Шрифты ---------- */
-
 @font-face {
   font-family: "Lora";
   src: url("fonts/lora-cyrillic.woff2") format("woff2");
@@ -46,11 +34,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-
-/* ---------- Переменные ---------- */
-
 :root {
-  /* Цвета макета плюс шагаловский синий для тёмного блока */
   --color-bg: #f5f2ea;
   --color-bg-alt: #e8e3d7;
   --color-dark: #292f29;
@@ -64,11 +48,9 @@
   --color-error: #8f2424;
   --color-success: #1f6b45;
 
-  /* Шрифты */
   --font-heading: "Lora", Georgia, "Times New Roman", serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-  /* Размеры текста: заголовки плавно растут от телефона к ПК */
   --fs-h1: clamp(2.5rem, 1.5rem + 4.2vw, 4.75rem);
   --fs-h2: clamp(1.85rem, 1.4rem + 1.8vw, 3rem);
   --fs-h3: clamp(1.35rem, 1.2rem + 0.5vw, 1.75rem);
@@ -79,7 +61,6 @@
   --lh-heading: 1.12;
   --lh-body: 1.6;
 
-  /* Отступы */
   --space-xs: 0.5rem;
   --space-s: 1rem;
   --space-m: 1.5rem;
@@ -88,20 +69,15 @@
   --space-2xl: 6rem;
   --section-gap: var(--space-xl);
 
-  /* Контейнер: контент 1296px, поля 72px на ПК */
   --container-width: 1296px;
   --container-padding: 1.25rem;
 
-  /* Анимации и эффекты */
   --transition: 0.3s ease;
   --transition-slow: 0.6s ease;
   --shadow-hover: 0 12px 32px rgb(41 41 35 / 0.15);
 
   --header-height: 4.5rem;
 }
-
-
-/* ---------- Базовые стили ---------- */
 
 *,
 *::before,
@@ -112,7 +88,6 @@
 html {
   text-size-adjust: 100%;
   scroll-behavior: smooth;
-  /* Якоря не прячутся под шапкой */
   scroll-padding-top: var(--header-height);
 }
 
@@ -158,7 +133,6 @@ blockquote {
   margin: 0;
 }
 
-/* Списки-меню и списки карточек без маркеров */
 ul[class],
 ol[class] {
   margin: 0;
@@ -193,7 +167,6 @@ button {
   cursor: pointer;
 }
 
-/* Видимый фокус для навигации с клавиатуры */
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
@@ -204,9 +177,6 @@ button {
   background-color: var(--color-primary);
 }
 
-
-/* ---------- Вспомогательные классы ---------- */
-
 .container {
   width: 100%;
   max-width: calc(var(--container-width) + 2 * var(--container-padding));
@@ -214,7 +184,6 @@ button {
   padding-inline: var(--container-padding);
 }
 
-/* Скрыть визуально, но оставить для экранных дикторов */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -227,7 +196,6 @@ button {
   border: 0;
 }
 
-/* Ссылка мимо шапки: видна только с клавиатуры */
 .skip-link {
   position: absolute;
   top: 0.75rem;
@@ -243,7 +211,6 @@ button {
   transform: none;
 }
 
-/* Кнопки как в макете: прямоугольные, без скругления */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -265,7 +232,6 @@ button {
   transform: scale(0.98);
 }
 
-/* Рубрика над заголовком */
 .eyebrow {
   margin-bottom: 0.85rem;
   color: var(--color-primary);
@@ -275,7 +241,6 @@ button {
   text-transform: uppercase;
 }
 
-/* Текстовая ссылка со стрелкой */
 .link-arrow {
   display: inline-flex;
   align-items: center;
@@ -300,7 +265,6 @@ button.link-arrow {
   transform: translate(3px, -3px);
 }
 
-/* Заголовок секции и ссылка справа */
 .section-head {
   display: flex;
   flex-direction: column;
@@ -309,7 +273,6 @@ button.link-arrow {
   margin-bottom: var(--space-l);
 }
 
-/* Подпись к чужому фото */
 .credit {
   display: block;
   margin-top: 0.45rem;
@@ -323,7 +286,6 @@ button.link-arrow {
   text-underline-offset: 2px;
 }
 
-/* Полоска белорусского орнамента между секциями */
 .ornament {
   height: 14px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='14' viewBox='0 0 56 14'%3E%3Cpath d='M28 1.5 32.5 7 28 12.5 23.5 7Z' fill='none' stroke='%237e302e' stroke-width='1'/%3E%3Cpath d='M8 7h6M11 4v6M42 7h6M45 4v6' stroke='%237e302e' stroke-width='1'/%3E%3C/svg%3E");
@@ -331,9 +293,6 @@ button.link-arrow {
   background-position: center;
   background-size: 56px 14px;
 }
-
-
-/* ---------- Шапка ---------- */
 
 .header {
   position: sticky;
@@ -380,7 +339,6 @@ button.link-arrow {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Бургер складывается в крестик */
 .header.is-open .header__burger span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -429,9 +387,6 @@ button.link-arrow {
 .nav__link--active {
   color: var(--color-primary);
 }
-
-
-/* ---------- Hero ---------- */
 
 .hero {
   padding-top: var(--space-l);
@@ -526,9 +481,6 @@ button.link-arrow {
   animation-delay: 0.22s;
 }
 
-
-/* ---------- Жизнь: flip-карточки ---------- */
-
 .periods {
   padding-bottom: var(--section-gap);
 }
@@ -614,9 +566,6 @@ button.link-arrow {
   object-fit: cover;
   object-position: top;
 }
-
-
-/* ---------- Хронология ---------- */
 
 .timeline {
   padding-block: var(--section-gap);
@@ -726,9 +675,6 @@ button.link-arrow {
   opacity: 1;
 }
 
-
-/* ---------- Места и слайдер ---------- */
-
 .places {
   padding-block: var(--section-gap);
 }
@@ -835,9 +781,6 @@ button.link-arrow {
   background: var(--color-primary);
 }
 
-
-/* ---------- Аудиогид ---------- */
-
 .feature {
   padding-block: var(--section-gap);
   background: var(--color-bg-alt);
@@ -929,9 +872,6 @@ button.link-arrow {
 .feature__transcript p {
   margin-top: 0.75rem;
 }
-
-
-/* ---------- Экскурсия: форма ---------- */
 
 .excursion {
   padding-block: var(--section-gap);
@@ -1041,9 +981,6 @@ button.link-arrow {
   animation: fade-up 0.45s ease both;
 }
 
-
-/* ---------- Подвал ---------- */
-
 .footer {
   padding-block: var(--space-l);
   border-top: 1px solid var(--color-line);
@@ -1079,9 +1016,6 @@ button.link-arrow {
   color: var(--color-text-muted);
 }
 
-
-/* ---------- Кнопка «Наверх» ---------- */
-
 .to-top {
   position: fixed;
   right: 1rem;
@@ -1100,9 +1034,6 @@ button.link-arrow {
   background: var(--color-primary);
   border-color: var(--color-primary);
 }
-
-
-/* ---------- Лайтбокс ---------- */
 
 .lightbox {
   display: none;
@@ -1181,9 +1112,6 @@ button.link-arrow {
   z-index: 1;
 }
 
-
-/* ---------- Появление блоков ---------- */
-
 [data-reveal] {
   opacity: 0;
   transform: translateY(24px);
@@ -1194,9 +1122,6 @@ button.link-arrow {
   opacity: 1;
   transform: none;
 }
-
-
-/* ---------- Анимации ---------- */
 
 @keyframes fade-up {
   from {
@@ -1219,9 +1144,6 @@ button.link-arrow {
     opacity: 1;
   }
 }
-
-
-/* ---------- Планшет ---------- */
 
 @media (min-width: 768px) {
   :root {
@@ -1362,9 +1284,6 @@ button.link-arrow {
   }
 }
 
-
-/* ---------- ПК ---------- */
-
 @media (min-width: 1280px) {
   :root {
     --container-padding: 4.5rem;
@@ -1412,10 +1331,6 @@ button.link-arrow {
   }
 }
 
-
-/* ---------- Пониженная анимация ---------- */
-
-/* Для тех, у кого в системе отключены анимации */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

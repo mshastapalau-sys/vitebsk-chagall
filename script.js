@@ -1,15 +1,9 @@
-// Скрипты страницы. Файл подключён как модуль.
-
-// Один элемент
 const qs = (selector, root = document) => root.querySelector(selector);
 
-// Список элементов
 const qsa = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-// В системе отключены анимации
 const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Меню: бургер, плавный переход по якорю, закрытие по Esc
 const initNav = () => {
   const header = qs(".header");
   const burger = qs(".header__burger");
@@ -57,7 +51,6 @@ const initNav = () => {
   syncInert();
 };
 
-// Тень шапки и кнопка «Наверх» после прокрутки
 const initHeader = () => {
   const header = qs(".header");
   const toTop = qs("[data-to-top]");
@@ -80,7 +73,6 @@ const initHeader = () => {
   });
 };
 
-// Подсветка пункта меню той секции, что сейчас на экране
 const initActiveLink = () => {
   const links = qsa(".nav__link");
   if (!links.length) return;
@@ -111,7 +103,6 @@ const initActiveLink = () => {
   sections.forEach((section) => observer.observe(section));
 };
 
-// Блоки проявляются, когда до них докрутили
 const initReveal = () => {
   const items = qsa("[data-reveal]");
   if (!items.length) return;
@@ -137,7 +128,6 @@ const initReveal = () => {
   });
 };
 
-// Карточка жизни переворачивается по кнопке
 const initFlipCards = () => {
   qsa("[data-flip]").forEach((card) => {
     const front = qs(".period-card__front", card);
@@ -153,7 +143,6 @@ const initFlipCards = () => {
       back.inert = !flipped;
       moreButton.setAttribute("aria-expanded", String(flipped));
       window.setTimeout(() => {
-        // фокус на «Назад» иначе прокручивает карточку к концу текста
         if (flipped) back.scrollTop = 0;
         if (moveFocus) (flipped ? backButton : moreButton).focus({ preventScroll: true });
         if (flipped) back.scrollTop = 0;
@@ -165,7 +154,6 @@ const initFlipCards = () => {
   });
 };
 
-// Линия хронологии растёт вместе с прокруткой, точка раскрывает текст
 const initTimeline = () => {
   const section = qs(".timeline");
   if (!section) return;
@@ -182,7 +170,6 @@ const initTimeline = () => {
       return;
     }
 
-    // 0 — секция ещё внизу, 1 — уже проскроллена
     const rect = section.getBoundingClientRect();
     const passed = window.innerHeight * 0.9 - rect.top;
     const total = rect.height + window.innerHeight * 0.35;
@@ -211,7 +198,6 @@ const initTimeline = () => {
   });
 };
 
-// Карусель мест на телефоне: стрелки, точки, свайп и клавиши
 const initSlider = () => {
   const slider = qs("[data-slider]");
   if (!slider) return;
@@ -301,7 +287,6 @@ const initSlider = () => {
   showSlide(0);
 };
 
-// Просмотр фото: вперёд, назад, Esc и клик по фону
 const initLightbox = () => {
   const dialog = qs("#lightbox");
   if (!dialog) return;
@@ -371,7 +356,6 @@ const initLightbox = () => {
   });
 };
 
-// Свой плеер аудиогида поверх скрытого audio
 const initAudioGuide = () => {
   const player = qs("[data-audio]");
   if (!player) return;
@@ -433,12 +417,10 @@ const initAudioGuide = () => {
   });
 };
 
-// Правила формы: одна проверка на все поля
 const formRules = {
   name: {
     check: (value) => {
       const text = value.trim();
-      // первая буква, дальше буквы, пробел или дефис, минимум 2 символа
       const ok = /^[A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё\s-]{1,}$/.test(text);
       if (!ok) return "Введите имя (минимум 2 буквы)";
       return "";
@@ -468,7 +450,6 @@ const formRules = {
   }
 };
 
-// Проверить одно поле и показать текст ошибки
 const validateField = (input) => {
   const rule = formRules[input.name];
   const field = input.closest(".form__field");
@@ -484,7 +465,6 @@ const validateField = (input) => {
   return !invalid;
 };
 
-// Заявка на экскурсию никуда не уходит: сервера нет
 const initForm = () => {
   const form = qs("[data-form]");
   if (!form) return;
@@ -546,7 +526,6 @@ const initForm = () => {
   });
 };
 
-// Запуск всех функций страницы
 const init = () => {
   initNav();
   initHeader();

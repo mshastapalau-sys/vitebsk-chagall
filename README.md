@@ -20,7 +20,7 @@ vitebsk-chagall/
 ├── README.md
 ├── img/          — фото в WebP
 ├── fonts/        — Lora и Inter
-└── audio/        — аудиогид, audioguide-pokrovskaya.wav
+└── audio/        — аудиогид, audioguide-pokrovskaya.m4a
 ```
 
 Секции страницы сверху вниз: шапка, первый экран, жизнь Шагала, хронология, места, аудиогид, форма экскурсии, подвал. Просмотр фото — это `dialog` в конце страницы. Пока он закрыт, места под подвалом не занимает.
@@ -70,7 +70,7 @@ Grid, flexbox, `position: sticky`, `clamp`, пользовательские с�
 
 - Шрифты [Lora](https://fonts.google.com/specimen/Lora) и [Inter](https://fonts.google.com/specimen/Inter) — лицензия SIL Open Font License 1.1.
 - Тексты сверены со статьями русской Википедии «Шагал, Марк Захарович», «Витебское народное художественное училище», «Музей Марка Шагала (Витебск)» и переписаны своими словами.
-- Аудиогид: текст свой, файл `audio/audioguide-pokrovskaya.wav`.
+- Аудиогид: текст свой, файл `audio/audioguide-pokrovskaya.m4a`.
 
 ### Изображения
 

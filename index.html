@@ -6,19 +6,16 @@
   <meta name="description" content="Онлайн-путеводитель по Витебску Марка Шагала: детство художника, школа Пэна, Народное художественное училище и места, которые можно увидеть сегодня.">
   <title>Витебск глазами Марка Шагала</title>
 
-  <!-- Предзагрузка основных шрифтов и фото первого экрана -->
   <link rel="preload" href="fonts/lora-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="img/hero-vitebsk-1912.webp" as="image">
 
   <link rel="stylesheet" href="styles.css">
-  <!-- Модуль выполняется после загрузки HTML -->
   <script src="script.js" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-  <!-- Шапка -->
   <header class="header">
     <div class="container header__inner">
       <a class="header__logo" href="#hero">Витебск Шагала</a>
@@ -43,7 +40,6 @@
   </header>
 
   <main id="main">
-    <!-- Hero -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="container hero__grid">
         <div class="hero__copy">
@@ -70,7 +66,6 @@
 
     <div class="ornament" aria-hidden="true"></div>
 
-    <!-- Жизнь -->
     <section class="periods" id="life" aria-labelledby="life-title">
       <div class="container">
         <div class="section-head">
@@ -146,7 +141,6 @@
       </div>
     </section>
 
-    <!-- Хронология -->
     <section class="timeline" id="timeline" aria-labelledby="timeline-title">
       <div class="container">
         <p class="eyebrow">Жизнь художника</p>
@@ -210,7 +204,6 @@
 
     <div class="ornament" aria-hidden="true"></div>
 
-    <!-- Места -->
     <section class="places" id="places" aria-labelledby="places-title">
       <div class="container">
         <div class="section-head">
@@ -276,7 +269,6 @@
           </div>
         </div>
 
-        <!-- Дополнительные фото тура -->
         <div class="places__extra" hidden>
           <img data-slide data-lightbox-index="3" src="img/chagall-sculpture.webp" width="1200" height="900" alt="Памятник Марку Шагалу у Дома-музея в Витебске" data-caption="Фото: Adam Jones, CC BY-SA 2.0, Wikimedia Commons. Изменено.">
           <img data-slide data-lightbox-index="4" src="img/vitebsk-assumption-1911.webp" width="1400" height="1226" alt="Интерьер Успенского собора в Витебске, 1911 год" data-caption="Фото: Сергей Прокудин-Горский, 1911. Общественное достояние, Wikimedia Commons. Изменено.">
@@ -284,7 +276,6 @@
       </div>
     </section>
 
-    <!-- Аудиогид -->
     <section class="feature" id="audioguide" aria-labelledby="audioguide-title">
       <div class="container feature__grid">
         <figure class="feature__media">
@@ -318,7 +309,6 @@
 
     <div class="ornament" aria-hidden="true"></div>
 
-    <!-- Экскурсия -->
     <section class="excursion" id="excursion" aria-labelledby="excursion-title">
       <div class="container excursion__grid">
         <div class="excursion__copy">
@@ -372,7 +362,6 @@
     </section>
   </main>
 
-  <!-- Подвал -->
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
@@ -398,7 +387,6 @@
 
   <button class="to-top" type="button" data-to-top hidden>Наверх</button>
 
-  <!-- Лайтбокс -->
   <dialog class="lightbox" id="lightbox" aria-label="Просмотр фотографий">
     <div class="lightbox__frame">
       <button class="lightbox__close" type="button" aria-label="Закрыть">×</button>
